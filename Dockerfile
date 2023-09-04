@@ -18,9 +18,6 @@ RUN apt-get update && apt-get upgrade -y \
 
 
 
-COPY src /app/src
 
-EXPOSE 3000
 
-CMD [ "mvn", "exec:java" ]
 
