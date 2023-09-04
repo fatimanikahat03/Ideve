@@ -8,9 +8,7 @@ WORKDIR /app
 COPY pom.xml /app/
 RUN mvn install
 
-COPY .bowerrc /app/
-COPY bower.json /app/
-RUN mvn bowerInstallDocker
+
 
 
 FROM node
@@ -21,7 +19,7 @@ RUN apt-get update && apt-get upgrade -y \
 RUN mkdir /app
 WORKDIR /app
 
-COPY --from=0 /app/src/public/static/bower_components/ /app/src/public/static/bower_components/
+#COPY --from=0 /app/src/public/static/bower_components/ /app/src/public/static/bower_components/
 
 COPY pom.xml /app/
 RUN mvn install
@@ -33,4 +31,4 @@ EXPOSE 3000
 
 CMD [ "mvn", "exec:java" ]
 
-RUN ls -lah /app/src/public/static/bower_components/
+#RUN ls -lah /app/src/public/static/bower_components/
