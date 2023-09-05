@@ -3,7 +3,8 @@
 FROM tomcat
 # COPY path-to-your-application-war path-to-webapps-in-docker-tomcat
 COPY target/my.war /usr/local/tomcat/webapps/
-
+EXPOSE 8081
+CMD ["catalina.sh", "run"]
 # docker image build -t your_name/some-app location_of_dockerfile
 #docker image build -t nikahat/appimage
 # now if you check list of images in your docker, you will see as
