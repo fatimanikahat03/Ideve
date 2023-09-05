@@ -20,27 +20,4 @@ docker image ls
 
 
 
-$ ls
-Dockerfile  ROOT.war
-$ cat Dockerfile 
-FROM tomcat
 
-COPY my.war /usr/local/tomcat/webapps/
-
-
-
-
-
-docker image pull tomcat
-COPY my.war /usr/local/tomcat/webapps/
-
-docker image ls # it will list all images in your docker
-docker container create --publish 8081:8080 --name my-tomcat-container tomcat
-docker container ls -a # it will list all the containers
-docker container start my-tomcat-container
-
-# to get inside your docker tomcat container directory...
-docker container exec -it my-tomcat-container bash
-# it will list tomcat directory inside your docker as
-# :/usr/local/tomcat# ls
-# LICENSE  NOTICE  RELEASE-NOTES RUNNING.txt  bin  conf include  lib # logs  native-jni-lib  temp  webapps  work
