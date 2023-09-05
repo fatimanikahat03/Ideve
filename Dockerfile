@@ -8,7 +8,7 @@ COPY my/target/my.war /usr/local/tomcat/webapps/
 #docker image build -t nikahat/appimage
 # now if you check list of images in your docker, you will see as
 # your_name/some-app-image image in it...
-docker image ls
+#docker image ls
 # REPOSITORY               TAG    IMAGE ID      CREATED      SIZE
 # your_name/some-app-image latest 5154ca16b1dd  1 hours ago  421MB
 
