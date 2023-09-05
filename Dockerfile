@@ -5,7 +5,7 @@ FROM tomcat
 COPY my/target/my.war /usr/local/tomcat/webapps/
 
 # docker image build -t your_name/some-app location_of_dockerfile
-docker image build -t nikahat/appimage
+#docker image build -t nikahat/appimage
 # now if you check list of images in your docker, you will see as
 # your_name/some-app-image image in it...
 docker image ls
