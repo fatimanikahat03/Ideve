@@ -17,11 +17,12 @@
 # creating and running a container
 #docker container run -it --publish 8081:8080 nikahat/appimage
 
-FROM centos
-RUN yum clean all
-RUN yum install java -y
+FROM ubuntu
+RUN apt clean all
+RUN apt install java -y
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-9.0.54/* 
 COPY tomcat-users.xml /usr/local/tomcat/conf/
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
+  
