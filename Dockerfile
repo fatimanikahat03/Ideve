@@ -18,7 +18,7 @@
 #docker container run -it --publish 8081:8080 nikahat/appimage
 
 FROM centos
-RUN apt install java -y
+RUN apt-get install java -y
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-9.0.54/* 
 COPY tomcat-users.xml /usr/local/tomcat/conf/
