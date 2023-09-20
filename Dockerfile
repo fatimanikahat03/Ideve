@@ -19,7 +19,10 @@
 
 FROM ubuntu
 RUN apt clean all
-RUN apt install openjdk-11-jdk -y
+RUN apt-get install -y software-properties-common && \
+    add-apt-repository -y ppa:openjdk-r/ppa && \
+    apt-get update && \
+    apt-get install -y openjdk-11-jdk
 RUN tar xvfz apache*.tar.gz
 RUN mv apache-tomcat-9.0.54/* 
 COPY tomcat-users.xml /usr/local/tomcat/conf/
