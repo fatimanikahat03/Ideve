@@ -1,7 +1,25 @@
+
+# Use the official image as a parent image
+FROM tomcat:8.0
+
+# Set the working directory in the container
+WORKDIR /usr/local/tomcat/webapps/
+
+# Copy the WAR file into the webapps directory of the Tomcat server
+COPY /target/my.war ./
+
+# Make port 8080 available to the world outside this container
+EXPOSE 8080
+
+# Run the command inside your container filesystem
+CMD ["catalina.sh", "run"]
+
+
+
 # we are extending everything fr
-.
-...l ;jnk.om tomcat:8.0 image .......
-'.'#FROM tomcat:8.0-alpine
+#.
+#...l ;jnk.om tomcat:8.0 image .......
+#'.'#FROM tomcat:8.0-alpine
 #LABEL maintainer=”deepak@softwareyoga.com”
 # COPY path-to-your-application-war path-to-webapps-in-docker-tomcat
 #COPY tomcat-users.xml /usr/local/tomcat/conf/
@@ -19,15 +37,5 @@
 # creating and running a container
 #docker container run -it --publish 8081:8080 nikahat/appimage
 
-FROM ubuntu
-RUN apt clean all
-RUN apt-get install -y software-properties-common && \
-    add-apt-repository -y ppa:openjdk-r/ppa && \
-    apt-get update && \
-    apt-get install -y openjdk-11-jdk
-RUN tar xvfz apache*.tar.gz
-RUN mv apache-tomcat-9.0.54/* 
-COPY tomcat-users.xml /usr/local/tomcat/conf/
-EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
   
